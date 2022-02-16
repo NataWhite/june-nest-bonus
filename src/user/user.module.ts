@@ -1,19 +1,20 @@
-import {Module} from '@nestjs/common';
-import {UserService} from './user.service';
+import {forwardRef, Module} from '@nestjs/common';
+import { UsersController } from './user.controller';
+import { UserService } from './user.service';
 import {SequelizeModule} from "@nestjs/sequelize";
-import {User} from "./users.entity";
-import {UserController} from "./user.controller";
-import {TypeOrmModule} from "@nestjs/typeorm";
+import {User} from "./users.model";
+import {AuthModule} from "../auth/auth.module";
+import {Post} from "../posts/posts.model";
 
 @Module({
-    controllers: [UserController],
+    controllers: [UsersController],
     providers: [UserService],
     imports: [
-        TypeOrmModule.forFeature([User])
+        SequelizeModule.forFeature([User, Post]),
+        forwardRef(() => AuthModule),
     ],
     exports: [
-        UserService
+        UserService,
     ]
 })
-export class UserModule {
-}
+export class UserModule {}
