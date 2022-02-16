@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { UserModule } from './user/user.module';
-import { SequelizeModule } from '@nestjs/sequelize';
-import { User } from './user/users.model';
+import { User } from './user/user.entity';
 import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   controllers: [],
@@ -11,17 +12,25 @@ import { ConfigModule } from '@nestjs/config';
     ConfigModule.forRoot({
       envFilePath: `.env`,
     }),
-    SequelizeModule.forRoot({
-      dialect: 'postgres',
+    TypeOrmModule.forRoot({
+      type: 'postgres',
       host: process.env.POSTGRES_HOST,
       port: Number(process.env.POSTGRESS_PORT),
-      username: process.env.POSTGRES_USER,
-      password: process.env.POSTGRESS_PASSWORD,
-      database: process.env.POSTGRES_DB,
-      models: [User],
-      autoLoadModels: true,
+      username: 'postgres',
+      password: 'root',
+      database: 'june-21',
+      synchronize: true,
+      entities: [
+        __dirname + '/**/*.entity{.ts,.js}',
+      ],
+      migrationsRun: true,
+      migrations: ['dist/database/migrations/*.js'],
+      cli: {
+        migrationsDir: 'database/migrations',
+      }
     }),
     UserModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
