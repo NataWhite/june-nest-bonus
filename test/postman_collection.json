@@ -1,0 +1,522 @@
+{
+	"info": {
+		"_postman_id": "ed91952d-d6f1-4381-bc6a-b35c6da448bb",
+		"name": "June-2021",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GET users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"response is not empty\", function () {",
+									"    const jsonData = pm.response.json();",
+									"    console.log(jsonData)",
+									"    pm.expect(jsonData).to.be.an('array');",
+									"    pm.expect(jsonData.length).to.equal(8);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/users",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1599"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"63f-QLV81zV+J3v9vhF0MeEmD/m9rfY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 18 Feb 2022 17:17:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"email\": \"dsfdfhg@dgfgj\",\n        \"password\": \"sfdgfh\",\n        \"username\": \"Vasya Cocos\",\n        \"status\": true,\n        \"city\": \"lviv\",\n        \"createdAt\": \"2022-02-16T18:14:11.385Z\",\n        \"updatedAt\": \"2022-02-16T18:14:11.385Z\"\n    },\n    {\n        \"id\": 2,\n        \"email\": \"dsfdfghgfhghg@dgfgj\",\n        \"password\": \"sfdgfh\",\n        \"username\": \"Katya\",\n        \"status\": true,\n        \"city\": \"ternopil\",\n        \"createdAt\": \"2022-02-16T18:14:46.716Z\",\n        \"updatedAt\": \"2022-02-16T18:14:46.716Z\"\n    },\n    {\n        \"id\": 5,\n        \"email\": \"dsfdfghdfgfgfhghg@dgfgj\",\n        \"password\": \"sffdgfxhgjh\",\n        \"username\": \"Katya\",\n        \"status\": false,\n        \"city\": \"ternopil\",\n        \"createdAt\": \"2022-02-16T18:35:51.182Z\",\n        \"updatedAt\": \"2022-02-16T18:35:51.182Z\"\n    },\n    {\n        \"id\": 7,\n        \"email\": \"dsfdfgfvhdfgfgfhghg@dgfgj\",\n        \"password\": \"jh\",\n        \"username\": \"Katya\",\n        \"status\": false,\n        \"city\": \"ternopil\",\n        \"createdAt\": \"2022-02-16T18:36:10.106Z\",\n        \"updatedAt\": \"2022-02-16T18:36:10.106Z\"\n    },\n    {\n        \"id\": 8,\n        \"email\": \"dsfdfgvbnbn bfvhdfgfgfhghg@dgfgj\",\n        \"password\": \"j cvcbvbh\",\n        \"username\": \"Katya\",\n        \"status\": false,\n        \"city\": \"ternopil\",\n        \"createdAt\": \"2022-02-16T18:38:14.275Z\",\n        \"updatedAt\": \"2022-02-16T18:38:14.275Z\"\n    },\n    {\n        \"id\": 10,\n        \"email\": \"dsfdfgvbvhdfgfgfhghg@dgfgj\",\n        \"password\": \"j cvcbvbh\",\n        \"username\": \"Katya\",\n        \"status\": false,\n        \"city\": \"ternopil\",\n        \"createdAt\": \"2022-02-18T11:36:56.466Z\",\n        \"updatedAt\": \"2022-02-18T11:36:56.466Z\"\n    },\n    {\n        \"id\": 12,\n        \"email\": \"dsfdfgvbvfgfgfhghg@dgfgj\",\n        \"password\": \"j cvcbvbh\",\n        \"username\": \"Katya\",\n        \"status\": false,\n        \"city\": \"ternopil\",\n        \"createdAt\": \"2022-02-18T11:37:39.179Z\",\n        \"updatedAt\": \"2022-02-18T11:37:39.179Z\"\n    },\n    {\n        \"id\": 13,\n        \"email\": \"sddf@gmail.com\",\n        \"password\": \"$2a$06$ZsSQyEJobJ6RXiG4N9uF4.rw3TeEP6XWYT134DfA8GoD9TFMz3S5u\",\n        \"username\": \"Cocos\",\n        \"status\": true,\n        \"city\": \"Lviv\",\n        \"createdAt\": \"2022-02-18T17:15:02.885Z\",\n        \"updatedAt\": \"2022-02-18T17:15:02.885Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET users/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNkZGZAZ21haWwuY29tIiwiaWQiOjEzLCJuYW1lIjoiQ29jb3MiLCJpYXQiOjE2NDUyMDQ1MDIsImV4cCI6MTY0NTI5MDkwMn0.dF3_tVhOjv1b2UQqwI6TaeL0M4GQ8R1cuo3F_qLwk5U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET users/:id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/users/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "183"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b7-f7SwXK8CJ6eRIDqpCJ07r0Szxl8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 18 Feb 2022 17:20:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"email\": \"dsfdfhg@dgfgj\",\n    \"password\": \"sfdgfh\",\n    \"username\": \"Vasya Cocos\",\n    \"status\": true,\n    \"city\": \"lviv\",\n    \"createdAt\": \"2022-02-16T18:14:11.385Z\",\n    \"updatedAt\": \"2022-02-16T18:14:11.385Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"user_id\",  pm.response.json().id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Cocos\",\n    \"city\":\"Lviv\",\n    \"email\":\"sdd1111h@gmail.com\",\n    \"password\": \"12323435dgf\",\n    \"status\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/users",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"Cocos\",\n    \"city\":\"Lviv\",\n    \"email\":\"sdd1111h@gmail.com\",\n    \"password\": \"12323435dgf\",\n    \"status\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/users",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bc-Wfm3lKwdFy9nKfaucFsTZEqKgx0\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 18 Feb 2022 17:46:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 15,\n    \"username\": \"Cocos\",\n    \"city\": \"Lviv\",\n    \"email\": \"sdd1111h@gmail.com\",\n    \"password\": \"12323435dgf\",\n    \"status\": true,\n    \"updatedAt\": \"2022-02-18T17:46:07.951Z\",\n    \"createdAt\": \"2022-02-18T17:46:07.951Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get user id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"correct user id\", function () {",
+									"    const userId = pm.environment.get(\"user_id\");",
+									"    const jsonData = pm.response.json().id;",
+									"    pm.expect(jsonData).to.eql(userId);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/users/{{user_id}}",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "POST auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"auth_token\", pm.response.json().token);",
+									"",
+									"pm.test(\"token is cokkect\", function () {",
+									"    var jsonData = pm.response.json().token;",
+									"    pm.expect(jsonData).to.be.a('string');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Cocos\",\n    \"city\":\"Lviv\",\n    \"email\":\"sdd222fhhh@gmail.com\",\n    \"password\": \"12323435dgf\",\n    \"status\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/auth/registration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"registration"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "POST auth",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"Cocos\",\n    \"city\":\"Lviv\",\n    \"email\":\"sddf@gmail.com\",\n    \"password\": \"12323435dgf\",\n    \"status\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/auth/registration",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"auth",
+										"registration"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "204"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cc-Syvjn7nmQscrGG7lUpYl6pJJCNI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 18 Feb 2022 17:15:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNkZGZAZ21haWwuY29tIiwiaWQiOjEzLCJuYW1lIjoiQ29jb3MiLCJpYXQiOjE2NDUyMDQ1MDIsImV4cCI6MTY0NTI5MDkwMn0.dF3_tVhOjv1b2UQqwI6TaeL0M4GQ8R1cuo3F_qLwk5U\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "GET posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GET posts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "201"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c9-nkPg6BCTucpYpqjGGWh+Bh3W/UE\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 18 Feb 2022 17:22:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"dfdghgjh\",\n        \"content\": \"sdfdg bhjkl fghjkl;\",\n        \"image\": \"0e840e1c-3b99-4ae4-ab82-d78bc9039e0e.jpg\",\n        \"userId\": 1,\n        \"createdAt\": \"2022-02-16T18:20:33.677Z\",\n        \"updatedAt\": \"2022-02-16T18:20:33.677Z\"\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
