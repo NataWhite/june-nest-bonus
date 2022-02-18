@@ -1,23 +1,20 @@
-import { forwardRef, Module } from "@nestjs/common";
-import { UsersController } from "./user.controller";
-import { UserService } from "./user.service";
-import { SequelizeModule } from "@nestjs/sequelize";
-import { User } from "./users.model";
-import { Post } from "../posts/posts.model";
-import { AuthModule } from "../auth/auth.module";
-import { fork } from "child_process";
+import {forwardRef, Module} from '@nestjs/common';
+import { UserController } from './user.controller';
+import { UserService } from './user.service';
+import {SequelizeModule} from "@nestjs/sequelize";
+import {User} from "./users.model";
+import {AuthModule} from "../auth/auth.module";
+import {Post} from "../posts/posts.model";
 
 @Module({
-  controllers: [UsersController],
+  controllers: [UserController],
   providers: [UserService],
   imports: [
     SequelizeModule.forFeature([User, Post]),
-    forwardRef(()=> AuthModule),
+    forwardRef(() => AuthModule),
   ],
   exports: [
-    UserModule,
-    UserService
+    UserService,
   ]
 })
-export class UserModule {
-}
+export class UserModule {}
